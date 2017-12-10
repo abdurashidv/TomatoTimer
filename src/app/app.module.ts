@@ -7,11 +7,13 @@ import { ModalModule  } from 'ngx-bootstrap/modal';
 
 import { AppComponent } from './app.component';
 import { SettingsComponent } from './settings/settings.component';
+import { SettingComponent } from './settings/setting/setting.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    SettingsComponent
+    SettingsComponent,
+    SettingComponent
   ],
   imports: [
     BrowserModule,
