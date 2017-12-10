@@ -10,7 +10,9 @@
       </div>
       <div class="modal-body">
         <div class="container-fluid">
-          <app-setting></app-setting>
+          <app-setting *ngIf = "item.toLowerCase() === 'settings'"></app-setting>
+          <app-faq *ngIf = "item.toLowerCase() === 'faq'"></app-faq>
+          <app-social *ngIf = "item.toLowerCase() === 'social'"></app-social>
         </div>
       </div>
     </ng-template>

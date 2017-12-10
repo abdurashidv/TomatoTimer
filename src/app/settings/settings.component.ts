@@ -11,7 +11,7 @@ import { BsModalService, BsModalRef } from 'ngx-bootstrap/modal';
 export class SettingsComponent {
 
   modalRef: BsModalRef;
-  private items:string[] = ['FAQ', 'Settings', 'Tweet about us!'];
+  private items:string[] = ['FAQ', 'Settings', 'Social'];
 
   constructor(private modalService: BsModalService) {}
   
