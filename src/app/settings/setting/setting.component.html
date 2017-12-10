@@ -1,41 +1,56 @@
 <div id="settingsModal" class="reveal-modal medium open" style="top: 100px; opacity: 1; visibility: visible; display: block;">
     <h2>Options</h2>
-      <h3>Select Sound</h3>
-      <select id="alertoption" size="5">
+      <div class="form-group">
+        <label for="exampleFormControlSelect1">Select Sound</label>
+        <select multiple class="form-control" size="5">
           <option value="80sAlarm">80s Alarm</option>
           <option value="alarmclock">Alarm Clock</option>
           <option value="alarmwatch">Wristwatch Alarm</option>
           <option value="ding">Elevator Ding</option>
           <option value="doorbell">Door Bell</option>
-      </select>
-      <br>
-      <h3>Select Volume</h3>
-      <select id="volume" size="5">
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="exampleFormControlSelect1">Select Volume</label>
+        <select multiple class="form-control" size="5">
           <option value="0">Mute</option>
           <option value="0.25">25%</option>
           <option value="0.5">50%</option>
           <option value="0.75">75%</option>
-          <option value="1.0">100%</option> 
-      </select>
-      <br>
-      <h3>Set Custom Times <small>(in minutes)</small></h3>
-      <div class="container">
+          <option value="1.0">100%</option>
+        </select>
+      </div>
+      <label for="exampleFormControlSelect1">Set Custom Times <small>(in minutes)</small></label>      
+      <div class="container-fluid">
           <div class="row">
-            <div class="col-md-2">Pomodoro</div>
-            <div class="col-md-2">Short Break</div>
-            <div class="col-md-2">Long Break</div>
+            <div class="col-md-3"><b>Pomodoro</b></div>
+            <div class="col-md-3"><b>Short Break</b></div>
+            <div class="col-md-3"><b>Long Break</b></div>
           </div>
           <div class="row">
-            <div class="col-md-2">
-              <input type="button" id="submit" value="Save" class="btn" onclick="saveSETTINGS();">          
+            <div class="col-md-3">
+              <input type="text" class="form-control form-control-md">          
             </div>
-            <div class="col-md-2">
-              <input type="button" id="reset" value="Reset" class="btn" onclick="resetSETTINGS();">
+            <div class="col-md-3">
+              <input type="text" class="form-control form-control-md"> 
             </div>
-            <div class="col-md-2">
-              <input type="button" id="soundtest" value="Sound Test" class="btn" onclick="soundTEST();">
+            <div class="col-md-3">
+              <input type="text" class="form-control form-control-md">
             </div>
           </div>
       </div>
-      
+      <br>
+      <div class="container-fluid">
+          <div class="row">
+            <div class="col-md-3">
+              <button type="button" class="btn btn-primary btn-block">Save</button>
+            </div>
+            <div class="col-md-3">
+              <button type="button" class="btn btn-primary btn-block">Reset</button>
+            </div>
+            <div class="col-md-3">
+              <button type="button" class="btn btn-primary btn-block">Sound Test</button>
+            </div>
+          </div>
+      </div>
   </div>
