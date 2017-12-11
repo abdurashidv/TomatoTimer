@@ -1,10 +1,12 @@
 import { Component } from '@angular/core';
 import { SettingsComponent } from './settings/settings.component';
+import { ValueService } from 'app/value.service';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css']
+  styleUrls: ['./app.component.css'],
+  providers: [ ValueService ]
 })
 
 export class AppComponent {
@@ -15,13 +17,16 @@ export class AppComponent {
   private interval:any;
   private audio: string = 'sound';
   private isBtnDisabled: boolean = false;
+  private params: any;
   
-  constructor(){
+  constructor(private valueService: ValueService){
     this.getMinSec(this.seconds, false);
   }
 
   start(){
     this.isBtnDisabled = true;
+    this.params = this.valueService.getDefaults();
+    this.seconds = this.params.pomodoro * 60;
 
     this.interval = setInterval(() => {
       this.getMinSec(this.seconds, true);

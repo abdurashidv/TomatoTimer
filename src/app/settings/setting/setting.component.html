@@ -2,22 +2,14 @@
     <h2>Options</h2>
       <div class="form-group">
         <label for="exampleFormControlSelect1">Select Sound</label>
-        <select multiple class="form-control" size="5">
-          <option value="80sAlarm">80s Alarm</option>
-          <option value="alarmclock">Alarm Clock</option>
-          <option value="alarmwatch">Wristwatch Alarm</option>
-          <option value="ding">Elevator Ding</option>
-          <option value="doorbell">Door Bell</option>
+        <select multiple class="form-control" size="5" id="sel1" [(ngModel)]="params.sound">
+          <option *ngFor="let sound of sounds" [value]="sound.value" [selected]="params.sound == sound.value">{{sound.name}}</option>          
         </select>
       </div>
       <div class="form-group">
         <label for="exampleFormControlSelect1">Select Volume</label>
-        <select multiple class="form-control" size="5">
-          <option value="0">Mute</option>
-          <option value="0.25">25%</option>
-          <option value="0.5">50%</option>
-          <option value="0.75">75%</option>
-          <option value="1.0">100%</option>
+        <select multiple class="form-control" size="5" id="sel1" [(ngModel)]="params.volume">
+          <option *ngFor="let volume of volumes" [value]="volume.value" [selected]="params.volume == volume.value">{{volume.name}}</option>          
         </select>
       </div>
       <label for="exampleFormControlSelect1">Set Custom Times <small>(in minutes)</small></label>      
@@ -29,13 +21,13 @@
           </div>
           <div class="row">
             <div class="col-md-3">
-              <input type="text" class="form-control form-control-md">          
+              <input type="text" class="form-control form-control-md" [(ngModel)]="params.pomodoro">          
             </div>
             <div class="col-md-3">
-              <input type="text" class="form-control form-control-md"> 
+              <input type="text" class="form-control form-control-md" [(ngModel)]="params.shortBreak"> 
             </div>
             <div class="col-md-3">
-              <input type="text" class="form-control form-control-md">
+              <input type="text" class="form-control form-control-md" [(ngModel)]="params.longBreak">
             </div>
           </div>
       </div>
@@ -43,13 +35,13 @@
       <div class="container-fluid">
           <div class="row">
             <div class="col-md-3">
-              <button type="button" class="btn btn-primary btn-block">Save</button>
+              <button type="button" class="btn btn-primary btn-block" (click) = "save(params)">Save</button>
             </div>
             <div class="col-md-3">
-              <button type="button" class="btn btn-primary btn-block">Reset</button>
+              <button type="button" class="btn btn-primary btn-block" (click) = "reset()">Reset</button>
             </div>
             <div class="col-md-3">
-              <button type="button" class="btn btn-primary btn-block">Sound Test</button>
+              <button type="button" class="btn btn-primary btn-block" (click) = "soundTest(params.sound, params.volume)">Sound Test</button>
             </div>
           </div>
       </div>
