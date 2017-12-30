@@ -15,6 +15,7 @@ export class AppComponent implements OnInit {
   public seconds: number;  
   public isBtnDisabled: boolean = false;
   public params: any;
+  //
 
   ngOnInit(){
     this.params = {pomodoro: '25', shortBreak: '5', longBreak: '10', sound: 'alarmclock', volume: '0.5' };
