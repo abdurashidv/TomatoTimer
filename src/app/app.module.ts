@@ -10,6 +10,7 @@ import { SettingsComponent } from './settings/settings.component';
 import { SettingComponent } from './settings/setting/setting.component';
 import { FaqComponent } from './settings/faq/faq.component';
 import { SocialComponent } from './settings/social/social.component';
+import { ValueService } from 'app/value.service';
 
 @NgModule({
   declarations: [
@@ -25,7 +26,7 @@ import { SocialComponent } from './settings/social/social.component';
     HttpModule,
     ModalModule.forRoot()
   ],
-  providers: [],
+  providers: [ValueService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

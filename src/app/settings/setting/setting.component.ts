@@ -1,17 +1,16 @@
 import { Component, OnInit } from '@angular/core';
 import { ValueService } from 'app/value.service';
+import {ViewChild, ElementRef} from '@angular/core';
 
 @Component({
   selector: 'app-setting',
   templateUrl: './setting.component.html',
   styleUrls: ['./setting.component.css'],
-  providers: [ ValueService ]
 })
 export class SettingComponent {
 
-  private params: any;
-
-  private sounds: any = [
+  public params: any;
+  public sounds: any = [
     {value: '80sAlarm', name:'80s Alarm'},
     {value: 'alarmclock', name:'Alarm Clock'},
     {value: 'alarmwatch', name:'Wristwatch Alarm'},
@@ -19,7 +18,7 @@ export class SettingComponent {
     {value: 'doorbell', name:'Door Bell'},
   ];
 
-  private volumes: any = [
+  public volumes: any = [
     {value: '0', name:'Mute'},
     {value: '0.25', name:'25%'},
     {value: '0.5', name:'50%'},
@@ -28,15 +27,15 @@ export class SettingComponent {
   ];
 
   constructor(private valueService: ValueService) {
-    this.params = this.valueService.getDefaults();
+    this.params = this.valueService.getParameters();
   }
 
   save(params: any){
     this.valueService.setParameters(params);
   }
-  
+
   reset(){
-    this.params = this.valueService.getDefaults();
+    this.params = this.valueService.getParameters();
   }
 
   soundTest(sound: string, volume: string){

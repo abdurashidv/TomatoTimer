@@ -1,3 +1,6 @@
-<p>
-  faq works!
-</p>
+<ul>
+  <li *ngFor="let faq of faqs">
+    <div class="question"><b>{{ faq.question }}</b></div>
+    <div class="answer">{{ faq.answer }}</div>
+  </li>
+</ul>

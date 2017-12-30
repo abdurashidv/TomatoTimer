@@ -1,29 +1,22 @@
-import { Injectable } from '@angular/core';
+import { Injectable, Input } from '@angular/core';
+import { Subject }    from 'rxjs/Subject';
 
 @Injectable()
 export class ValueService {
-
-  private pomodoro: string;
-  private shortBreak: string;
-  private longBreak: string;
-  private sound: string;
-  private volume: string
-
   private params: any;
-  private defaults: any = {pomodoro: 25, shortBreak: 5, longBreak: 10, sound: 'alarmclock', volume: '50%' };
+  private defaults: any = {pomodoro: '25', shortBreak: '5', longBreak: '10', sound: 'alarmclock', volume: '0.5' };
+  private rxParams = new Subject<any>();
+  rxParams$ = this.rxParams.asObservable();
 
-  constructor() { }
+  constructor(){
+    this.rxParams.next(this.defaults);
+  }
 
   setParameters(params: any){
-    this.params = params;
+    this.rxParams.next(params);
   }
 
   getParameters(){
     return this.params ? this.params : this.defaults;
   }
-
-  getDefaults(){
-    return this.defaults;
-  }
-
 }

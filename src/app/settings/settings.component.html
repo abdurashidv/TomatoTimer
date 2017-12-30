@@ -1,6 +1,5 @@
 <ul class="navbar navbar-right">
   <li *ngFor = "let item of items" (click) = "openModal(template)">{{item}}
-
     <ng-template #template>
       <div class="modal-header">
         <h4 class="modal-title pull-left">{{item}}</h4>
